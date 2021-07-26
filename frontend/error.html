@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+
+<html class="app-ui">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Document title -->
+    <title>400</title>
+
+    <meta name="description" content="AppUI - Frontend Template & UI Framework" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png" />
+    <link rel="icon" href="assets/img/favicons/favicon.ico" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" id="css-ionicons" href="assets/css/ionicons.css" />
+    <link rel="stylesheet" id="css-bootstrap" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" id="css-app" href="assets/css/app.css" />
+    <link rel="stylesheet" id="css-app-custom" href="assets/css/app-custom.css" />
+    <!-- End Stylesheets -->
+</head>
+
+<body class="app-ui">
+<div class="app-layout-canvas">
+    <div class="app-layout-container">
+
+
+        <main class="app-layout-content">
+
+            <!-- Error Content -->
+            <div class="page-content bg-white text-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <!-- Error Titles -->
+                            <h1 class="display-4 m-b-0 text-green animated bounceIn">404</h1>
+                            <p class="m-b-lg">访问的页面走丢了！即将返回上一级页面</p>
+                            <p class="m-b-lg" id="time">3</p>
+                            <!-- End Error Titles -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Error Content -->
+
+        </main>
+
+
+    </div>
+    <!-- .app-layout-container -->
+</div>
+<!-- .app-layout-canvas -->
+
+
+<!-- AppUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock and App.js -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/bootstrap.min.js"></script>
+<script src="assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="assets/js/core/jquery.placeholder.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/app-custom.js"></script>
+<script>
+    $(function () {
+        let time = 3;
+        let timer = setInterval(function () {
+            time--;
+            $("#time").html(time)
+            console.log(time)
+            if (time<=0){
+                window.history.go(-2)
+                clearInterval(timer);
+            }
+        },1000)
+
+    })
+</script>
+</body>
+
+</html>

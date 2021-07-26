@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="app-ui">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Document title -->
+    <title>仓库管理系统</title>
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png" />
+    <link rel="icon" href="assets/img/favicons/favicon.ico" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="assets/js/plugins/slick/slick.min.css" />
+    <link rel="stylesheet" href="assets/js/plugins/slick/slick-theme.min.css" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" id="css-ionicons" href="assets/css/ionicons.css" />
+    <link rel="stylesheet" id="css-bootstrap" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" id="css-app" href="assets/css/app.css" />
+    <link rel="stylesheet" id="css-app-custom" href="assets/css/app-custom.css" />
+    <style>
+        main{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+    </style>
+    <!-- End Stylesheets -->
+</head>
+
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="app-layout-canvas">
+    <div class="app-layout-container">
+        <aside class="app-layout-drawer">
+
+            <!-- Drawer scroll area -->
+            <div class="app-layout-drawer-scroll">
+                <!-- Drawer logo -->
+                <div id="logo" class="drawer-header">
+                    <a href="index.html"><img class="img-responsive" src="assets/img/logo/logo-backend.png" title="AppUI" alt="AppUI" /></a>
+                </div>
+
+                <!-- Drawer navigation -->
+                <nav class="drawer-main">
+                    <ul class="nav nav-drawer">
+
+                        <li class="nav-item active">
+                            <a href="index.html"><i class="fa fa-home"></i>主页</a>
+                        </li>
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="fa fa-user"></i>用户管理</a>
+                            <ul class="nav nav-subnav">
+                                <li>
+                                    <a href="user_list.html">用户信息</i></a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="ion-cube"></i>产品管理</a>
+                            <ul class="nav nav-subnav">
+                                <li>
+                                    <a href="product_list.html">产品列表</a>
+                                </li>
+                                <li>
+                                    <a href="category_list.html">产品类别</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="ion-ios-albums"></i>仓库管理</a>
+                            <ul class="nav nav-subnav">
+                                <li>
+                                    <a href="storage_list.html">仓库信息</a>
+                                </li>
+                                <li>
+                                    <a href="location_list.html">库位信息</a>
+                                </li>
+                                <li>
+                                    <a href="shelve_list.html">货架信息</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="ion-person-stalker"></i>顾客管理</a>
+                            <ul class="nav nav-subnav">
+                                <li>
+                                    <a href="customer_list.html">顾客信息</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- End drawer navigation -->
+
+                <div class="drawer-footer">
+                    <p class="copyright">Copyright &copy; 2021 All rights reserved.</p>
+                </div>
+            </div>
+            <!-- End drawer scroll area -->
+        </aside>
+
+        <header class="app-layout-header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <button class="pull-left hidden-lg hidden-md navbar-toggle" type="button" data-toggle="layout" data-action="sidebar_toggle">
+                            <span class="sr-only">Toggle drawer</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <span class="navbar-page-title">仓库管理</span>
+
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="header-navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-right navbar-toolbar hidden-sm hidden-xs">
+
+                            <li class="dropdown dropdown-profile">
+                                <a href="javascript:void(0)" data-toggle="dropdown">
+                                    <span class="m-r-sm">wuweihan<span class="caret"></span></span>
+                                    <img class="img-avatar img-avatar-48" src="assets/img/avatars/avatar3.jpg" alt="User profile pic" />
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="login.html"><i class="ion-log-out">&nbsp;</i>注销用户</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- .navbar-right -->
+                    </div>
+                </div>
+                <!-- .container-fluid -->
+            </nav>
+            <!-- .navbar-default -->
+        </header>
+        <!-- End header -->
+
+        <main class="app-layout-content">
+
+            <div class="col-lg-6">
+                <!-- Material Forms Validation -->
+                <h2 class="section-title">仓库信息</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>请填写仓库信息</h4>
+                        <ul class="card-actions">
+                            <li>
+                                <button onclick="back()">返回</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-block">
+                        <!-- jQuery Validation (.js-validation-material class is initialized in js/pages/base_forms_validation.js) -->
+                        <!-- For more examples please check https://github.com/jzaefferer/jquery-validation -->
+                        <div class="js-validation-material form-horizontal m-t-sm">
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="form-material">
+                                        <input type="hidden" name="id" id="id">
+                                        <input class="form-control" type="text" id="val-storage_name" name="val-storage_name" placeholder="请输入仓库名" />
+                                        <label for="val-storage_name">仓库名 <span class="text-orange">*</span></label>
+                                        <span class="tips" id="storage_name_tip" style="font-size: 12px;color: red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="form-material">
+                                        <input class="form-control" type="text" id="val-address" name="val-address" placeholder="请输入仓库所在地" />
+                                        <label for="val-address">仓库所在地 <span class="text-orange">*</span></label>
+                                        <span class="tips" id="address_tip" style="font-size: 12px;color: red"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-b-0">
+                                <div class="col-xs-6">
+                                    <button class="btn btn-app" onclick="send()">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .card-block -->
+                </div>
+                <!-- .card -->
+                <!-- End Material Forms Validation -->
+            </div>
+        </main>
+
+    </div>
+    <!-- .app-layout-container -->
+</div>
+</div>
+<div class="app-ui-mask-modal"></div>
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/bootstrap.min.js"></script>
+<script src="assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="assets/js/core/jquery.placeholder.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/app-custom.js"></script>
+
+<!-- Page Plugins -->
+<script src="assets/js/plugins/slick/slick.min.js"></script>
+<script src="assets/js/plugins/chartjs/Chart.min.js"></script>
+<script src="assets/js/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/js/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/js/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="assets/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/js/url.js"></script>
+<script>
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+
+    $(function()
+    {
+        App.initHelpers('slick');
+        let id = getQueryVariable('id');
+        $.post(buildUrl(`/storage/Storage/edit/id/${id}`),function (response) {
+            if (response.data){
+                $(response.data).each(function (index,storage) {
+                    $("#id").val(storage.id),
+                        $("#val-storage_name").val(storage.storage_name),
+                        $("#val-address").val(storage.address)
+                })
+            }else {
+                window.open('error.html','_self');
+            }
+
+        })
+    });
+
+    let back = function () {
+        window.open("storage_list.html","_self");
+    }
+
+    let send = function () {
+        let data = {
+            id:$("#id").val(),
+            storage_name:$("#val-storage_name").val(),
+            address:$("#val-address").val()
+        }
+        $(".tips").empty();
+        $.post(buildUrl("/storage/Storage/update"),data,function (response) {
+            if (response.code){
+                alert("仓库信息修改成功！");
+                window.open("storage_list.html","_self");
+            }else {
+                for (field in response.msg){
+                    $("#" + field + "_tip").html(response.msg[field])
+                }
+            }
+        })
+    }
+</script>
+
+<style>
+    .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+</body>
+
+</html>
