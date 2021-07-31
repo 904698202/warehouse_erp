@@ -11,7 +11,7 @@
 
 // [ 应用入口文件 ]
 namespace think;
-header("Access-Control-Allow-Origin:*");
+//header("Access-Control-Allow-Origin:*");
 // 加载基础文件
 require __DIR__ . '/../thinkphp/base.php';
 

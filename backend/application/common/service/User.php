@@ -33,15 +33,14 @@ class User
     /**
      * @param $account
      * @param $password
-     * @return bool
+     * @return UserModel
      * 登录
      */
     function login($account,$password){
         $result = UserModel::where('username',$account)
             ->where('password',$password)
             ->find();
-        if($result) session('user',$account);
-        return $result!=null;
+        return $result;
     }
 
     /**

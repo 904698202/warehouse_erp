@@ -48,7 +48,7 @@ class User extends Controller
      */
     function delete($id){
         (new UserService())->delete($id);
-        return $this->success('冻结用户成功！','index');
+        $this->success('冻结用户成功！','index');
     }
 
 
@@ -70,5 +70,4 @@ class User extends Controller
         }
         return $this->success('修改用户成功！','index');
     }
-
 }
