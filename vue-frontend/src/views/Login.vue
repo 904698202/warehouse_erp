@@ -4,16 +4,19 @@
                  v-loading="loading" element-loading-text="正在登录。。。">
             <h3 class="loginTitle">系统登录</h3>
             <el-form-item prop="username">
-                <el-input type="text" auto-complete="false" v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+                <el-input type="text" auto-complete="false" v-model="loginForm.username" placeholder="请输入用户名"
+                          @keydown.enter.native="submitLogin('loginForm')"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-                <el-input type="password" auto-complete="false" v-model="loginForm.password" placeholder="请输入密码"></el-input>
+                <el-input type="password" auto-complete="false" v-model="loginForm.password" placeholder="请输入密码"
+                          @keydown.enter.native="submitLogin('loginForm')"></el-input>
             </el-form-item>
 <!--            <el-form-item prop="code">-->
 <!--                <el-input type="text" class="loginCode" auto-complete="false" v-model="loginForm.code" placeholder="点击图片更换验证码"></el-input>-->
 <!--                <img :src="captchaUrl">-->
 <!--            </el-form-item>-->
-            <el-checkbox v-model="checked" class="loginRemenber">记住我</el-checkbox>
+            <el-checkbox v-model="checked" class="loginRemenber"
+                         @keydown.enter.native="submitLogin('loginForm')">记住我</el-checkbox>
             <el-button type="primary" @click="submitLogin('loginForm')" style="width: 100%">登录</el-button>
         </el-form>
     </div>

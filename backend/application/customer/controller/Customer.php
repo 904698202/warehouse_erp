@@ -1,6 +1,5 @@
 <?php
 namespace app\customer\controller;
-use app\base\controller\Base;
 use app\common\service\Customer as CustomerService;
 use app\common\validate\customerValidate;
 use think\Controller;
@@ -14,7 +13,7 @@ class Customer extends Controller
      */
     function index(){
         $data = (new CustomerService())->page();
-        $this->result($data,1,"获取数据成功");
+        $this->result($data,1,"获取顾客信息成功");
     }
 
     /**
@@ -33,7 +32,7 @@ class Customer extends Controller
         }else{
             (new CustomerService())->create($data);
         }
-        return $this->success('添加顾客成功！','index');
+        return $this->success('添加成功！','index');
     }
 
     /*
@@ -41,7 +40,7 @@ class Customer extends Controller
      */
     function delete($id){
         (new CustomerService())->delete($id);
-        return $this->success('删除顾客成功！','index');
+        return $this->success('删除成功！','index');
     }
 
     /*
@@ -60,7 +59,7 @@ class Customer extends Controller
         }else{
             (new CustomerService())->update($data);
         }
-        return $this->success('修改顾客成功！','index');
+        return $this->success('修改成功！','index');
     }
 
 }

@@ -111,7 +111,8 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // 以token值来判断是否登录
   if (window.sessionStorage.getItem('tokenStr')) {
-    if (to.path === '/' || to.path === '') {
+    // 重定向到首页
+    if (to.path === '/' || to.path === '' || to.path === '/login') {
       document.title = '仓库管理系统'
       next('/home/controller')
     } else {
@@ -123,6 +124,7 @@ router.beforeEach((to, from, next) => {
       document.title = '仓库管理系统'
       next()
     } else {
+      // 未登录时默认跳转到登录页面
       document.title = '仓库管理系统'
       next('/login')
       Message("欢迎使用仓库管理系统，请先进行登录")

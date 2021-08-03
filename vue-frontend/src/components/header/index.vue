@@ -1,5 +1,6 @@
 <template>
   <div class="header-container">
+<!--    <el-button type="primary" icon="el-icon-edit" circle @click="changeMenu"></el-button>-->
     <div class="title">仓库管理系统</div>
     <el-dropdown class="userinfo" @command="userCommand">
       <span class="el-dropdown-link">
