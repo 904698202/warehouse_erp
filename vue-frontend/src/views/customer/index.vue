@@ -21,6 +21,7 @@
         <data-picker @data-change="dataChange"></data-picker>
       </div>
       <div slot="right">
+        <el-button type="danger" class="search-btn" :disabled="this.multipleSelection.length===0" @click="deleteMany">批量删除</el-button>
         <el-button type="primary" class="search-btn" @click="handleCreate">添加顾客</el-button>
       </div>
     </action-bar>
@@ -29,6 +30,7 @@
     <el-table
             v-loading="loading"
             :data="tableData"
+            @selection-change="handleSelectionChange"
             style="width: 100%">
       <el-table-column
               type="selection"
@@ -80,7 +82,16 @@
         </template>
       </el-table-column>
     </el-table>
-
+    <div class="pages-change">
+      <el-pagination
+              background :page-sizes="[5, 10, 15, 20]" :page-size="this.searchDatas.size"
+              :current-page="this.searchDatas.page"
+              layout=' total, sizes, prev, pager, next, jumper'
+              :total="totalDatasLength"
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
 <!--编辑框-->
     <edit :dialogVisible="iDialogVisible" @closeEditView="changeEditViewState" :customerInfo="customerInfo"></edit>
 
@@ -104,14 +115,20 @@
     },
     data() {
       return {
+        multipleSelection: [],
         loading: false,
         iDialogVisible: false,
+        totalDatasLength:1,
         searchDatas: {
           name: '',
           telphone: '',
           email: '',
           begin_time: '',
-          end_time: ''
+          end_time: '',
+          // 当前第几页
+          page: 1,
+          // 每页几条数据
+          size: 5
         },
         tableData: [
           {
@@ -150,9 +167,10 @@
       },
       search() {
         this.loading = true;
-        this.postRequest('/customer/customer/index', this.searchDatas).then(res => {
+        this.postRequest('/customer/customer/index',this.searchDatas).then(res => {
           this.loading = false;
-          this.tableData = res.data
+          this.tableData = JSON.parse(res.data.items)
+          this.totalDatasLength = res.data.total
         })
       },
       handleEdit(index, row) {
@@ -188,11 +206,51 @@
       handleCreate(){
         this.customerInfo = {}
         this.changeEditViewState()
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val
+      },
+      deleteMany(){
+        console.log(this.multipleSelection)
+        this.$confirm(`是否批量删除选中的${this.multipleSelection.length}条顾客信息？`, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          let ids = [];
+          this.multipleSelection.forEach(item => {
+            ids.push(item.id)
+          })
+          this.deleteRequest('/customer/Customer/delete/id/' + ids).then(res => {
+            this.loading = true
+            if (res) {
+              this.loading = false
+              this.search()
+            }
+          })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      handleSizeChange(val) {
+        this.searchDatas.size = val;
+        this.search()
+      },
+      handleCurrentChange(val) {
+        this.searchDatas.page = val;
+        this.search()
       }
     }
   }
 </script>
 
 <style scoped>
-
+  .pages-change{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>

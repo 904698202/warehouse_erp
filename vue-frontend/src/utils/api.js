@@ -22,7 +22,9 @@ axios.interceptors.response.use(success => {
             return;
         }
         if (success.data.code === 1){
-            Message.success({message:success.data.msg})
+            if (success.data.msg) {
+                Message.success({message:success.data.msg})
+            }
         }
     }
     return success.data;

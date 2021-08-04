@@ -28,14 +28,13 @@
     }
   }
 
-  @media screen and (max-width: 1258px) {
+  @media screen and (max-width: 1296px) {
     .data-picker {
       display: none;
     }
-
   }
 
-  @media screen and (max-width: 893px) {
+  @media screen and (max-width: 1003px) {
     .search-input{
       display: none;
     }

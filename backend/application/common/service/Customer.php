@@ -24,9 +24,20 @@ class Customer
                 ]);
             }
         }
-        return empty($where)?
-            CustomerModel::select():
-            CustomerModel::where(new Where($where))->select();
+
+//        return empty($where)?
+//            CustomerModel::select():
+//            CustomerModel::where(new Where($where))->select();
+        $page = $data['page'];
+        $rows = $data['size'];
+        $items = CustomerModel::where(new Where($where))->page($page,$rows)->select()->toJson();
+        $total = CustomerModel::count();
+
+        $data = [
+            'total' =>$total,
+            'items' =>$items
+        ];
+        return $data;
     }
 
 

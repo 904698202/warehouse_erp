@@ -13,7 +13,7 @@ class Customer extends Controller
      */
     function index(){
         $data = (new CustomerService())->page();
-        $this->result($data,1,"获取顾客信息成功");
+        $this->result($data,1);
     }
 
     /**
